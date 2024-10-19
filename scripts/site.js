@@ -3,7 +3,6 @@
  * @param {string} page
  */
 function setPageContent(page) {
-  console.log(page);
   document.getElementById("contentFrame").src = page;
 }
 
@@ -21,8 +20,28 @@ function setPageTitle(title) {
  */
 function setDateTime(time) {
   const dateTimeStr = (time || new Date()).toLocaleString();
-  document.querySelectorAll("#datetimeDisplay").forEach((elem, _) => {
-    elem.innerText = dateTimeStr;
+  setInnerHTML("#datetimeDisplay", dateTimeStr);
+}
+
+/**
+ * Sets the inner html of any element that matches the selector to the value provided
+ * @param {string} selector
+ * @param {string} value
+ */
+function setInnerHTML(selector, value) {
+  document.querySelectorAll(selector).forEach((elem) => {
+    elem.innerHTML = value;
+  });
+}
+
+/**
+ * Sets the href attribute of any element that matches the selector to the value provided
+ * @param {string} selector
+ * @param {string} value
+ */
+function setHref(selector, value) {
+  document.querySelectorAll(selector).forEach((elem) => {
+    elem.href = value;
   });
 }
 
@@ -52,6 +71,27 @@ function loadPage(page) {
 
   // Optionally update date and time display
   setDateTime();
+
+  // Loads in profile info
+  setProfileInfo();
+}
+
+/**
+ * Loads profile data from assets/profile.json
+ */
+async function setProfileInfo() {
+  fetch("assets/profile.json")
+    .then((text) => text.json())
+    .then((json) => {
+      setInnerHTML("site-name", json.site_name);
+      setInnerHTML("name", json.name);
+      setInnerHTML("email", json.email);
+
+      setHref("email", `mailto: ${json.email}`);
+      setHref("github", json.github);
+      setHref("linkedin", json.linkedin);
+      setHref("site-repo", json.site_repo);
+    });
 }
 
 const params = new URLSearchParams(window.location.search);
