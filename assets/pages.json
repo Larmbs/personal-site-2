@@ -1,0 +1,87 @@
+{
+  "pages": {
+    "home": {
+      "src": "content/home.html"
+    },
+    "about": {
+      "src": "content/about.html"
+    },
+    "contact": {
+      "src": "content/contact.html"
+    },
+    "articles": {
+      "src": "content/blog.html"
+    }
+  },
+  "articles": {
+    "MineSweeperOnline": {
+      "src": "https://raw.githubusercontent.com/Larmbs/minesweeperonline-rs/master/README.md",
+      "tags": ["Sockets", "Game"],
+      "date": "Sep 8, 2024"
+    },
+    "Music Streaming Setup": {
+      "src": "https://raw.githubusercontent.com/Larmbs/Articles/main/song_streaming_setup.md",
+      "tags": ["Utility"],
+      "date": "Aug 28, 2024"
+    },
+    "Fluid Simulation": {
+      "src": "https://raw.githubusercontent.com/Larmbs/fluid-sim-rs/master/README.md",
+      "tags": ["Math", "Physics"],
+      "date": "Aug 28, 2024"
+    },
+    "Prompt Engineering": {
+      "src": "https://raw.githubusercontent.com/Larmbs/idea_generator/main/README.md",
+      "tags": ["AI", "ML"],
+      "date": "Aug 15 2024"
+    },
+    "Pseudo Random Number Generators (PRNG)": {
+      "src": "https://raw.githubusercontent.com/Larmbs/pseudo-random-numbers/main/README.md",
+      "tags": ["Math", "Number Theory"],
+      "date": "Aug 27, 2024"
+    },
+    "Pascal`s Triangle Explorer": {
+      "src": "https://raw.githubusercontent.com/Larmbs/pascal-tri-explorer/main/README.md",
+      "tags": ["Graphics", "Math", "Number Theory"],
+      "date": "Aug 6, 2024"
+    },
+    "My Machine Learning Env": {
+      "src": "assets/articles/machine-learning-env.md",
+      "tags": ["ML"],
+      "date": "May 22, 2024"
+    },
+    "Neural Network Guide": {
+      "src": "assets/articles/neural-network-guide.md",
+      "tags": ["ML"],
+      "date": "May 22, 2024"
+    },
+    "Neural Network Layers": {
+      "src": "assets/articles/neural-network-layers.md",
+      "tags": ["ML"],
+      "date": "May 22, 2024"
+    },
+    "Neural Network Optimizers": {
+      "src": "assets/articles/neural-network-optimizers.md",
+      "tags": ["ML"],
+      "date": "May 22, 2024"
+    },
+    "Sand Engine": {
+      "src": "https://raw.githubusercontent.com/Larmbs/sand-engine/master/README.md",
+      "tags": ["Physics", "Graphics"],
+      "date": "July 12, 2024"
+    },
+    "CPU V3": {
+      "src": "https://raw.githubusercontent.com/Larmbs/cpu-v3/master/README.md",
+      "tags": ["Low-Level"],
+      "date": "July 12, 2024"
+    }
+  },
+  "featured": [
+    "Fluid Simulation",
+    "Pseudo Random Number Generators (PRNG)",
+    "Prompt Engineering",
+    "Pascal's Triangle Explorer",
+    "Sand Engine",
+    "CPU V3",
+    "Neural Network Guide"
+  ]
+}
