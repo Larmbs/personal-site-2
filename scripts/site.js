@@ -128,25 +128,31 @@ function setTheme(theme) {
   // Set the appropriate class for the chosen theme
   if (theme === Themes.Dark) {
     document.body.classList.add(Themes.Dark);
-    document.getElementById('themeToggle').textContent = 'Switch to Light Mode';
+    document.getElementById("themeToggle").textContent = "Switch to Light Mode";
   } else {
     document.body.classList.add(Themes.Light);
-    document.getElementById('themeToggle').textContent = 'Switch to Dark Mode';
+    document.getElementById("themeToggle").textContent = "Switch to Dark Mode";
   }
 
   // Save the chosen theme in localStorage
-  localStorage.setItem('theme', theme);
+  localStorage.setItem("theme", theme);
 }
 
 /**
  * Loads site theme based on user preference
  */
 function loadTheme() {
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const savedTheme = localStorage.getItem("theme");
+  const prefersDarkScheme = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
 
   // Determine which theme to apply
-  const themeToSet = savedTheme ? savedTheme : (prefersDarkScheme ? Themes.Dark : Themes.Light);
+  const themeToSet = savedTheme
+    ? savedTheme
+    : prefersDarkScheme
+    ? Themes.Dark
+    : Themes.Light;
   setTheme(themeToSet);
 }
 
@@ -154,7 +160,9 @@ function loadTheme() {
  * Toggles site theme
  */
 function toggleTheme() {
-  const currentTheme = document.body.classList.contains(Themes.Dark) ? Themes.Dark : Themes.Light;
+  const currentTheme = document.body.classList.contains(Themes.Dark)
+    ? Themes.Dark
+    : Themes.Light;
   const newTheme = currentTheme === Themes.Dark ? Themes.Light : Themes.Dark;
   setTheme(newTheme);
 }
@@ -171,4 +179,3 @@ setDateTime();
 
 // Loads in profile info
 setProfileInfo();
-  // Determine which theme to apply
