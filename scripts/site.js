@@ -92,12 +92,6 @@ function loadPage(page) {
 
   // Set the page content by loading the URL into an iframe or any other mechanism
   setPageContent(url);
-
-  // Optionally update date and time display
-  setDateTime();
-
-  // Loads in profile info
-  setProfileInfo();
 }
 
 /**
@@ -115,5 +109,66 @@ async function setProfileInfo() {
     });
 }
 
+/**
+ * Enum over supported site themes
+ */
+const Themes = {
+  Light: "light",
+  Dark: "dark",
+};
+
+/**
+ * Sets the theme for the application.
+ * @param {string} theme - The theme to set, either "light" or "dark".
+ */
+function setTheme(theme) {
+  // Remove existing theme classes
+  document.body.classList.remove(Themes.Light, Themes.Dark);
+
+  // Set the appropriate class for the chosen theme
+  if (theme === Themes.Dark) {
+    document.body.classList.add(Themes.Dark);
+    document.getElementById('themeToggle').textContent = 'Switch to Light Mode';
+  } else {
+    document.body.classList.add(Themes.Light);
+    document.getElementById('themeToggle').textContent = 'Switch to Dark Mode';
+  }
+
+  // Save the chosen theme in localStorage
+  localStorage.setItem('theme', theme);
+}
+
+/**
+ * Loads site theme based on user preference
+ */
+function loadTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  // Determine which theme to apply
+  const themeToSet = savedTheme ? savedTheme : (prefersDarkScheme ? Themes.Dark : Themes.Light);
+  setTheme(themeToSet);
+}
+
+/**
+ * Toggles site theme
+ */
+function toggleTheme() {
+  const currentTheme = document.body.classList.contains(Themes.Dark) ? Themes.Dark : Themes.Light;
+  const newTheme = currentTheme === Themes.Dark ? Themes.Light : Themes.Dark;
+  setTheme(newTheme);
+}
+
+// Update mode on site load
+loadTheme();
+
+// Loading page content
 const params = new URLSearchParams(window.location.search);
 loadPage(params.get("page") ?? "home");
+
+// Optionally update date and time display
+setDateTime();
+
+// Loads in profile info
+setProfileInfo();
+  // Determine which theme to apply
