@@ -1,9 +1,31 @@
 /**
- * Loads pages main content based on other page
+ * Loads the main content of the page dynamically.
  * @param {string} page
  */
 function setPageContent(page) {
-  document.getElementById("contentFrame").src = page;
+  // Fetch the content of the page (assuming it's either HTML or text format)
+  fetch(page)
+    .then((response) => {
+      // Check if the fetch was successful
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.text(); // Return the page content as text
+    })
+    .then((pageContent) => {
+      // Inject the content into the content frame
+      document.getElementById("contentFrame").innerHTML = pageContent;
+
+      // Optionally, you can highlight any code blocks if using syntax highlighting
+      if (typeof hljs !== "undefined") {
+        hljs.highlightAll(); // Highlights all code blocks in the new content
+      }
+    })
+    .catch((error) => {
+      console.error("There was an error loading the page:", error);
+      document.getElementById("contentFrame").innerHTML =
+        "<p>Sorry, the content could not be loaded.</p>";
+    });
 }
 
 /**
@@ -58,10 +80,12 @@ function loadPage(page) {
     home: ["Home", "content/home.html"],
     about: ["About", "content/about.html"],
     contact: ["Contact", "content/contact.html"],
+    projects: ["Projects", "content/projects.html"],
+    null: ["Null", "content/null.html"],
   };
 
   // Destructuring to get page_name and url, default to "home" if page is not found
-  let [page_name, url] = pageMap[page] ?? pageMap["home"];
+  let [page_name, url] = pageMap[page] ?? pageMap["null"];
 
   // Set the page title
   setPageTitle(`${title} | ${page_name}`);
@@ -83,14 +107,11 @@ async function setProfileInfo() {
   fetch("assets/profile.json")
     .then((text) => text.json())
     .then((json) => {
-      setInnerHTML("site-name", json.site_name);
-      setInnerHTML("name", json.name);
-      setInnerHTML("email", json.email);
-
-      setHref("email", `mailto: ${json.email}`);
-      setHref("github", json.github);
-      setHref("linkedin", json.linkedin);
-      setHref("site-repo", json.site_repo);
+      setInnerHTML("#email", json.email);
+      setHref("#email", `mailto: ${json.email}`);
+      setHref("#github", json.github);
+      setHref("#linkedin", json.linkedin);
+      setHref("#site-repo", json.site_repo);
     });
 }
 

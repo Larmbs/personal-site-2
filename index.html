@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>My Personal Website</title>
 
     <!-- Main css stylesheet -->
     <link rel="stylesheet" href="styles/main.css" />
@@ -30,18 +30,35 @@
     <!-- Site Content -->
     <div>
       <!-- Navbar -->
-      <nav></nav>
+      <nav>
+        <ul>
+          <li><a href="index.html?page=home">Home</a></li>
+          <li><a href="index.html?page=about">About Me</a></li>
+          <li><a href="index.html?page=projects">Projects</a></li>
+          <li><a href="index.html?page=contact">Contact</a></li>
+        </ul>
+      </nav>
 
       <!-- Main Content -->
       <main id="content">
-        <iframe id="contentFrame" title=""> </iframe>
+        <div id="contentFrame" title="Dynamic Content"></div>
       </main>
 
       <!-- Footer Section -->
-      <footer></footer>
+      <footer>
+        <p>&copy; 2024 Liam Israel</p>
+        <div>
+          <a id="github" target="_blank"
+            ><i class="fab fa-github"></i> GitHub</a
+          >
+          <a id="linkedin" target="_blank"
+            ><i class="fab fa-linkedin"></i> LinkedIn</a
+          >
+        </div>
+      </footer>
     </div>
 
-    <!-- Script which loads site based on -->
+    <!-- Script which loads site content -->
     <script src="scripts/site.js"></script>
   </body>
 </html>
