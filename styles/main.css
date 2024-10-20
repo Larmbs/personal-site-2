@@ -1,28 +1,101 @@
-/* Root Variables for Light Mode */
 :root {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --button-background: #000000;
-  --button-text-color: #ffffff;
+  /* Root Variables for Light Mode */
+  --bg-clr-1: #ffffff;
+  --bg-clr-2: rgb(234, 234, 234);
+  --txt-clr: #000000;
+  --btn-bg: #000000;
+  --btn-txt-clr: #ffffff;
+  --brd-clr: #000000;
+  --l-brd: 2px;
+  --t-brd: 3px;
+}
+:root body {
+  /* Light Mode Styles */
+  background-color: var(--bg-clr-1);
+  color: var(--txt-clr);
+  transition: none;
+  margin: 0;
+  padding: 0;
+}
+:root body div {
+  min-height: 100vh;
+}
+:root body.dark {
+  /* Dark Mode Styles */
+  --bg-clr-1: #121212;
+  --bg-clr-2: rgb(40, 40, 40);
+  --txt-clr: #ffffff;
+  --btn-bg: #ffffff;
+  --btn-txt-clr: #000000;
+  --brd-clr: #ffffff;
 }
 
-/* Light Mode Styles */
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text colors */
-}
-
-/* Dark Mode Styles */
-body.dark {
-  --background-color: #121212; /* Dark background */
-  --text-color: #ffffff; /* Dark text color */
-  --button-background: #ffffff;
-  --button-text-color: #000000;
-}
-
-button {
-  background-color: var(--button-background);
-  color: var(--button-text-color);
+button.styled {
+  background-color: var(--btn-bg);
+  color: var(--btn-txt-clr);
   border: none;
+}
+
+button#themeToggle {
+  background-color: transparent;
+  border: none;
+  color: var(--txt-clr);
+}
+
+nav {
+  width: 100%;
+  height: 75px;
+  border-bottom: var(--t-brd) solid var(--brd-clr);
+  font-size: large;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
+nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  height: 80%;
+}
+nav ul li {
+  flex-grow: 1;
+  border-right: var(--l-brd) solid var(--brd-clr);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li a {
+  text-decoration: none;
+  color: var(--txt-clr);
+}
+nav ul li a:hover {
+  color: grey;
+}
+nav ul li:last-child {
+  border-right: none;
+  flex-grow: 0.5;
+}
+
+footer {
+  margin-top: auto;
+  padding: 20px;
+  background-color: var(--bg-clr-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer ul a {
+  width: 40%;
+  flex-grow: 1;
+}
+footer span {
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */

@@ -128,10 +128,10 @@ function setTheme(theme) {
   // Set the appropriate class for the chosen theme
   if (theme === Themes.Dark) {
     document.body.classList.add(Themes.Dark);
-    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-moon"></i>';
+    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-moon fa-2xl"></i>';
   } else {
     document.body.classList.add(Themes.Light);
-    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-sun"></i>';
+    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-sun fa-2xl"></i>';
   }
 
   // Save the chosen theme in localStorage
@@ -154,6 +154,9 @@ function loadTheme() {
     ? Themes.Dark
     : Themes.Light;
   setTheme(themeToSet);
+
+  // Enables transitions between page themes
+  document.body.style.transition = "background-color 0.3s, color 0.3s";
 }
 
 /**
