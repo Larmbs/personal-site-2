@@ -128,10 +128,10 @@ function setTheme(theme) {
   // Set the appropriate class for the chosen theme
   if (theme === Themes.Dark) {
     document.body.classList.add(Themes.Dark);
-    document.getElementById("themeToggle").textContent = "Switch to Light Mode";
+    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-moon"></i>';
   } else {
     document.body.classList.add(Themes.Light);
-    document.getElementById("themeToggle").textContent = "Switch to Dark Mode";
+    document.getElementById("themeToggle").innerHTML = '<i class="fa-solid fa-sun"></i>';
   }
 
   // Save the chosen theme in localStorage

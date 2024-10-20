@@ -17,4 +17,12 @@ body {
 body.dark {
   --background-color: #121212; /* Dark background */
   --text-color: #ffffff; /* Dark text color */
+  --button-background: #ffffff;
+  --button-text-color: #000000;
+}
+
+button {
+  background-color: var(--button-background);
+  color: var(--button-text-color);
+  border: none;
 }/*# sourceMappingURL=main.css.map */

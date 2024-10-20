@@ -2,6 +2,7 @@
 :root {
   --background-color: #ffffff;
   --text-color: #000000;
+
   --button-background: #000000;
   --button-text-color: #ffffff;
 }
@@ -17,4 +18,13 @@ body {
 body.dark {
   --background-color: #121212; /* Dark background */
   --text-color: #ffffff; /* Dark text color */
+  
+  --button-background: #ffffff;
+  --button-text-color: #000000;
+}
+
+button {
+  background-color: var(--button-background);
+  color: var(--button-text-color);
+  border: none;
 }
