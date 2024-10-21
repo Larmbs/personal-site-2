@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"markdown.css"}
+{"version":3,"sourceRoot":"","sources":["../scss/markdown.scss"],"names":[],"mappings":"AACI;EACI","file":"markdown.css"}

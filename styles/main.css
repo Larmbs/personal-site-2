@@ -1,13 +1,16 @@
 :root {
   /* Root Variables for Light Mode */
   --bg-clr-1: #ffffff;
-  --bg-clr-2: rgb(234, 234, 234);
+  --bg-clr-2: rgb(221, 221, 221);
   --txt-clr: #000000;
+  --txt-clr-hvr: rgb(73, 73, 73);
   --btn-bg: #000000;
   --btn-txt-clr: #ffffff;
-  --brd-clr: #000000;
+  --brd-clr: #d4d4d4;
   --l-brd: 2px;
-  --t-brd: 3px;
+  --t-brd: 2.5px;
+  font-family: "Rethink Sans", sans-serif;
+  overflow-x: hidden;
 }
 :root body {
   /* Light Mode Styles */
@@ -17,29 +20,25 @@
   margin: 0;
   padding: 0;
 }
-:root body div {
-  min-height: 100vh;
-}
 :root body.dark {
   /* Dark Mode Styles */
-  --bg-clr-1: #121212;
-  --bg-clr-2: rgb(40, 40, 40);
+  --bg-clr-1: #232323;
+  --bg-clr-2: rgb(30, 30, 30);
   --txt-clr: #ffffff;
+  --txt-clr-hvr: rgb(199, 199, 199);
   --btn-bg: #ffffff;
   --btn-txt-clr: #000000;
   --brd-clr: #ffffff;
-}
-
-button.styled {
-  background-color: var(--btn-bg);
-  color: var(--btn-txt-clr);
-  border: none;
 }
 
 button#themeToggle {
   background-color: transparent;
   border: none;
   color: var(--txt-clr);
+}
+
+button#themeToggle:hover {
+  color: var(--txt-clr-hvr);
 }
 
 nav {
@@ -68,10 +67,10 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
-  color: var(--txt-clr);
+  color: var(--txt-clr-hvr);
 }
 nav ul li a:hover {
-  color: grey;
+  color: var(--txt-clr);
 }
 nav ul li:last-child {
   border-right: none;
@@ -81,7 +80,7 @@ nav ul li:last-child {
 footer {
   margin-top: auto;
   padding: 20px;
-  background-color: var(--bg-clr-2);
+  background-image: linear-gradient(to bottom, var(--bg-clr-2), var(--bg-clr-1), var(--bg-clr-1));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,4 +97,69 @@ footer ul a {
 }
 footer span {
   text-align: center;
+}
+
+button.custom {
+  background-color: var(--btn-bg);
+  color: var(--btn-txt-clr);
+  border: none;
+}
+
+a.custom {
+  color: var(--txt-clr-hvr);
+  text-decoration: none;
+}
+
+a.custom:hover {
+  color: var(--txt-clr);
+  text-decoration: underline;
+}
+
+main#contentFrame {
+  margin: 0;
+  padding: 0;
+}
+
+section#hero-top {
+  width: 100%;
+  height: 50vh;
+  /* Background Image */
+  background-image: url("../assets/images/bg-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+section#hero-top div {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+}
+
+section#hero-blogs ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel { /* Reusable Carousel Element */
+  overflow: auto;
+  display: flex;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel .item {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.card {
+  width: 20rem;
+  aspect-ratio: 1;
+  background-color: rgb(212, 255, 212);
 }/*# sourceMappingURL=main.css.map */
